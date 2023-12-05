@@ -464,21 +464,21 @@ const chawenje = {
 
   clickSound() {
     let files = [
-      "audio/kidpix/i made a booboo.wav",
-      "audio/kidpix/no no no.wav",
-      "audio/kidpix/no way.wav",
-      "audio/kidpix/now wait a minute.wav",
-      "audio/kidpix/nuh uh.wav",
-      "audio/kidpix/oh no.wav",
-      "audio/kidpix/oops.wav",
-      "audio/kidpix/oops2.wav",
-      "audio/kidpix/uh oh.wav",
-      "audio/kidpix/uhoh.wav",
-      "audio/kidpix/undo undo.wav",
-      "audio/kidpix/wait a minute.wav",
-      "audio/kidpix/yikes.wav",
-      "audio/kidpix/you dont want it.wav",
-      "audio/kidpix/yuck.wav",
+      "./assets/audio/kidpix/i made a booboo.wav",
+      "./assets/audio/kidpix/no no no.wav",
+      "./assets/audio/kidpix/no way.wav",
+      "./assets/audio/kidpix/now wait a minute.wav",
+      "./assets/audio/kidpix/nuh uh.wav",
+      "./assets/audio/kidpix/oh no.wav",
+      "./assets/audio/kidpix/oops.wav",
+      "./assets/audio/kidpix/oops2.wav",
+      "./assets/audio/kidpix/uh oh.wav",
+      "./assets/audio/kidpix/uhoh.wav",
+      "./assets/audio/kidpix/undo undo.wav",
+      "./assets/audio/kidpix/wait a minute.wav",
+      "./assets/audio/kidpix/yikes.wav",
+      "./assets/audio/kidpix/you dont want it.wav",
+      "./assets/audio/kidpix/yuck.wav",
     ];
     let random = files[Math.floor(Math.random() * files.length)];
     let sound = new Audio(random);
