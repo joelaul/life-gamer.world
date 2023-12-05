@@ -1,69 +1,76 @@
-/* Challenge: different stylesheets for each webpage? */
-
 /* MAIN RULESETS */
 
 html {
-    font-size: 21px
+  font-size: 21px;
 }
 
 body {
-    background-color: black;
-    background-image: url("img/moroccan-flower-dark.png");
-    max-width: 850px;
-    margin: 0 auto;
-    border-left: 1px solid whitesmoke;
-    border-right: 1px solid whitesmoke;
-    color: whitesmoke    
+  background-color: black;
+  background-image: url("img/moroccan-flower-dark.png");
+  max-width: 850px;
+  margin: 0 auto;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  color: whitesmoke;
 }
 
 /* ELEMENT RULESETS */
 
-h1, h2, p, a, form, nav {
-    text-align: center
+h1,
+h2,
+p,
+a,
+form,
+nav {
+  text-align: center;
 }
 
 a:link {
-   color:aquamarine 
+  color: aquamarine;
 }
 
 a:visited {
-   color:aquamarine 
+  color: aquamarine;
 }
 
 a:hover {
-    color: dodgerblue;
+  color: dodgerblue;
 }
 
 button {
-    cursor: pointer;
-    border-radius: 10px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 button:hover {
-    border: 3px solid green;
+  border: 3px solid green;
 }
 
 button:active {
-    background-color: #d1d1d1;
+  background-color: #d1d1d1;
 }
 
 label {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 90%;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 90%;
 }
 
-table, tr, th, td, caption {
-    font-size: 14px;
-    border: 1px solid #eee;
-    font-family: 'Courier New', Courier, monospace;
-    border-collapse: collapse;
-    padding: 0.5rem;
+table,
+tr,
+th,
+td,
+caption {
+  font-size: 14px;
+  border: 1px solid #eee;
+  font-family: "Courier New", Courier, monospace;
+  border-collapse: collapse;
+  padding: 0.5rem;
 }
 
 video {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* CLASS RULESETS */
@@ -71,62 +78,66 @@ video {
 /* COMPOSITION CHALLENGE */
 
 .dashboard {
-    column-count: 3;
-    display: flexbox;
-    background-image: linear-gradient(to right, rgba(255,0,0,0.5), rgba(82, 82, 82, 0.5), rgba(255,0,0,0.5));
-    border: 1px solid black;
-    border-radius: 20px;
+  column-count: 3;
+  display: flexbox;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.5),
+    rgba(82, 82, 82, 0.5),
+    rgba(255, 0, 0, 0.5)
+  );
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 input[type="checkbox"] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 input[type="range"] {
-    cursor: pointer;
-    width: 40%;
+  cursor: pointer;
+  width: 40%;
 }
 
-
 .checkboxes {
-    column-count: 2;
-    padding-top: 18px;;
+  column-count: 2;
+  padding-top: 18px;
 }
 
 .button {
-    margin: 0;
-    text-align: center; 
-    padding-bottom: 18px;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 18px;
 }
 
 .ranges {
-    display: flexbox;
-    padding-top: 1rem;
-    padding-right: 10px;
-    line-height: 150%;
+  display: flexbox;
+  padding-top: 1rem;
+  padding-right: 10px;
+  line-height: 150%;
 }
 
 /* HOME PAGE */
 
 .audiobaby {
-    padding-left: 200px
+  padding-left: 200px;
 }
 
 .brave_traveller {
-    background-color:rgb(80, 0, 0)
+  background-color: rgb(80, 0, 0);
 }
 
 .chicagoslang {
-    background-color:whitesmoke; 
-    color:black
+  background-color: whitesmoke;
+  color: black;
 }
 
 .rapers {
-    background-color:greenyellow; 
-    color:black
+  background-color: greenyellow;
+  color: black;
 }
 
 .rapers_poll {
-    width: 850px;
-    background-color: darkturquoise;
+  width: 850px;
+  background-color: darkturquoise;
 }
