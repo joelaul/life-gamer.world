@@ -4,12 +4,6 @@ export function pick(arr) {
   return arr[idx];
 }
 
-export function pickMultiple(arr, n) {
-  for (let i = 0; i < n; i++) {
-    pick(arr);
-  }
-}
-
 export function retune(char) {
   const pitches = [
     "C",
