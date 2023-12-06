@@ -7,7 +7,7 @@ html {
 
 body {
   background-color: black;
-  background-image: url("../assets/img/compchallenge/moroccan-flower-dark.png");
+  background-image: url("../../public/assets/img/compchallenge/moroccan-flower-dark.png");
   max-width: 850px;
   margin: 0 auto;
   border-left: 1px solid whitesmoke;

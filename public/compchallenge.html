@@ -6,25 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Composition Challenge - life-gamer.world</title>
-    <link rel="icon" href="./assets/favicon.png">
+    <link rel="icon" href="./favicon.ico">
 
-    <link rel="stylesheet" href="./styles/main.css" type="text/css">
-    <link rel="stylesheet" href="./styles/compchallenge.css" type="text/css">
+    <link rel="stylesheet" href="../src/styles/main.css" type="text/css">
+    <link rel="stylesheet" href="../src/styles/compchallenge.css" type="text/css">
 
-    <script defer src="./scripts/compchallenge.js"></script>
+    <script defer type="module" src="../src/scripts/compchallenge.js"></script>
+    <script defer type="module" src="../src/scripts/constants.js"></script>
+    <script defer type="module" src="../src/scripts/constraintFix.js"></script>
+    <script defer type="module" src="../src/scripts/utils.js"></script>
 </head>
 
 <body>
     <header>
         <a href="./index.html"><img src="./assets/img/banner.png" 
             width="850" height="auto"></a>
-        <audio autoplay loop src="./assets/audio/mysterygift.mp3">
+        <audio autoplay loop src="./assets/audio/mystery-gift.mp3">
    </header>
 
     <main>
         <h1>Composition Challenge</h1>
         <!-- DASHBOARD HAS 3 COLUMNS: CHECKBOXES, BUTTON, RANGES-->
         <div class="dashboard">
+
             <div class="checkboxes" style="text-align:center">
                 <input type="checkbox" id="tempo" name="param" value="tempo" checked/>
                 <label for="tempo">Tempo</label><br>
@@ -50,32 +54,34 @@
                 <input type="checkbox" id="randomize" name="param" value="randomize"/>
                 <label for="randomize">Randomize</label><br>
             </div>
-
             <div class="button">
-                <img id="baby" src="./assets/img/dancing baby flipped.gif" width="60" height="auto">
+                <img id="baby" src="./assets/img/dancing-baby-flipped.gif" width="60" height="auto">
                 
                 <button id="btn"style="height:100px"><b>Generate</b></button>
 
-                <img id="baby" src="./assets/img/dancing baby.gif" width="60" height="auto">
+                <img id="baby" src="./assets/img/dancing-baby.gif" width="60" height="auto">
             </div>
 
             <div class="ranges"> 
-                <input type="range" id="maxtempo" name="maxtempo" min="60" max="240" step="10" value="240">
-                <label id="maxtempo" for="constraints">Max Tempo: 240</label>
 
-                <input type="range" id="constraints" name="constraints" min="1" max="3" step="1" value="2">
+                <input type="range" name="maxtempo" min="60" max="240" step="10" value="240">
+                <label for="constraints">Max Tempo: 240</label>
+
+                <input type="range" name="constraints" min="1" max="3" step="1" value="2">
                 <label for="constraints">Constraints: 2</label>
 
                 <button id="btn2"><b>Change Background</b></button>
+                
             </div>
         </div>
 
-            <!-- THE OUTPUT -->
-            <p id="btn" style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: 600; text-align:justify; line-height: 1.5; margin: 2rem 1rem"></p>
+        <!-- THE OUTPUT -->
+        <p id="btn" style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: 600; text-align:justify; line-height: 1.5; margin: 2rem 1rem"></p>
 
     </main>
 
     <footer>
     </footer>
 </body>
+
 </html>
