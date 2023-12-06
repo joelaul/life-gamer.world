@@ -74,18 +74,6 @@ function setGenres() {
   );
 }
 
-function setTempo() {
-  // 80 - maxTempo
-  let tempo = Math.floor(Math.random() * (maxTempo - 79)) + 80;
-  state.push("· tempo: " + tempo + " BPM");
-}
-
-function setTimeLimit() {
-  // random 30-180 15 min increments
-  let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
-  state.push("· time limit: " + timeLimit + " minutes");
-}
-
 function setOthers() {
   // add first constraint and all extra constraints to one array usedConstraints, then join by semicolons and update
   const { philosophies, modes, timeSigs, vibes, constraints } = params;
@@ -137,6 +125,18 @@ function setOthers() {
   }
 }
 
+function setTempo() {
+  // 60 to maxTempo
+  let tempo = Math.floor(Math.random() * (maxTempo - 59)) + 60;
+  state.push("· tempo: " + tempo + " BPM");
+}
+
+function setTimeLimit() {
+  // random 30-180 15 min increments
+  let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
+  state.push("· time limit: " + timeLimit + " minutes");
+}
+
 // HANDLERS
 
 function handleGenerate() {
@@ -185,3 +185,5 @@ const init = () => {
 };
 
 init();
+
+// TODO(joe): make setOthers() less janky
