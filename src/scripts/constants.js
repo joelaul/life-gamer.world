@@ -1,6 +1,6 @@
 export const params = {
-  genres: {
-    rockMetal: [
+  genres: [
+    [
       "power metal",
       "metalcore",
       "boomer death metal",
@@ -11,7 +11,7 @@ export const params = {
       "hardcore",
       "thrash",
     ],
-    edm: [
+    [
       "DnB",
       "house/deep house",
       "glitch hop",
@@ -20,25 +20,21 @@ export const params = {
       "late 90's jungle/IDM",
       "dubstep",
     ],
-    country: [
+    [
       "rockabilly",
       "nashville chicken pickin'",
       "bro country (luke combs, etc)",
       "country rap",
     ],
-    jazz: [
+    [
       "bossa nova",
       "lounge/muzak",
       "that shit dave weckl be doin",
       "J-fusion",
       "citypop",
     ],
-    hiphop: [
-      "plug type beat",
-      "detroit teejayx6 shit",
-      "90's east coast hip hop",
-    ],
-  },
+    ["plug type beat", "detroit teejayx6 shit", "90's east coast hip hop"],
+  ],
   styleOfs: [
     "a shonen anime theme",
     "nobuo uematsu",

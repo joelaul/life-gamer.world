@@ -58,7 +58,34 @@ function genreOrStyle() {
   }
 }
 
-// janky as fuck; consider more elegant logic
+function setGenres() {
+  let primaryGenre = pick(params.genres);
+  let primaryPick = pick(primaryGenre);
+  let secondaryGenre = pick(params.genres);
+  let same = secondaryGenre == primaryGenre;
+  while (same) {
+    secondaryGenre = pick(params.genres);
+    same = secondaryGenre == primaryGenre;
+  }
+  let secondaryPick = pick(secondaryGenre);
+
+  state.push(
+    `· primary genre: ${primaryPick}\n· with elements of: ${secondaryPick}`
+  );
+}
+
+function setTempo() {
+  // 80 - maxTempo
+  let tempo = Math.floor(Math.random() * (maxTempo - 79)) + 80;
+  state.push("· tempo: " + tempo + " BPM");
+}
+
+function setTimeLimit() {
+  // random 30-180 15 min increments
+  let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
+  state.push("· time limit: " + timeLimit + " minutes");
+}
+
 function setOthers() {
   // add first constraint and all extra constraints to one array usedConstraints, then join by semicolons and update
   const { philosophies, modes, timeSigs, vibes, constraints } = params;
@@ -110,35 +137,6 @@ function setOthers() {
   }
 }
 
-// TODO: can't pick from an object
-function setGenres() {
-  let primaryGenre = pick(params.genres);
-  let primaryPick = pick(primaryGenre);
-  let secondaryGenre = pick(params.genres);
-  let same = secondaryGenre == primaryGenre;
-  while (same) {
-    secondaryGenre = pick(params.genres);
-    same = secondaryGenre == primaryGenre;
-  }
-  let secondaryPick = pick(secondaryGenre);
-
-  state.push(
-    `· primary genre: ${primaryPick}\n· with elements of: ${secondaryPick}`
-  );
-}
-
-function setTempo() {
-  // 80 - maxTempo
-  let tempo = Math.floor(Math.random() * (maxTempo - 79)) + 80;
-  state.push("· tempo: " + tempo + " BPM");
-}
-
-function setTimeLimit() {
-  // random 30-180 15 min increments
-  let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
-  state.push("· time limit: " + timeLimit + " minutes");
-}
-
 // HANDLERS
 
 function handleGenerate() {
@@ -178,12 +176,10 @@ const init = () => {
     maxTempoLabel.innerText = "Max Tempo: " + e.target.value;
     maxTempo = e.target.value;
   });
-
   constraintsRange.addEventListener("input", (e) => {
     constraintsLabel.innerText = "Constraints: " + e.target.value;
     numConstraints = e.target.value;
   });
-
   generateBtn.addEventListener("click", handleGenerate);
   changeBGBtn.addEventListener("click", handleChangeBG);
 };
