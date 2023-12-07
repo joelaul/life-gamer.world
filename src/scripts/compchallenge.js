@@ -37,24 +37,48 @@ function clickSound() {
 // FUNCTIONS - STATE
 
 function setState() {
+  const { philosophies, modes, timeSigs, vibes, constraints } = params;
+
+  let others = [philosophies, modes, timeSigs, vibes, constraints];
+  let othersPrefixes = [
+    "· philosophy: ",
+    "· mode: ",
+    "· time sig: ",
+    "· vibe: ",
+    "",
+  ];
+  let othersCheckboxes = [...checkboxes].slice(1, 6);
+
+  setGenresOrStyle();
+
+  if (checkboxes[0].checked) {
+    setTempo();
+  }
+
+  // philosophy, mode, timeSig, vibe
+  setOthers(others, othersPrefixes, othersCheckboxes);
+
+  if (checkboxes[5].checked) {
+    setConstraints();
+  }
+  if (checkboxes[6].checked) {
+    setTimeLimit();
+  }
   if (checkboxes[7].checked) {
     randomize(state);
   }
 
-  genreOrStyle();
-  setOthers();
-
+  // console.log("state:\n" + state);
   let output = format(state);
   p.innerText = output;
 }
 
-function genreOrStyle() {
+function setGenresOrStyle() {
   let random = Math.random();
   if (random < 0.5) {
     setGenres();
   } else {
-    let style = pick(params.styleOfs);
-    state.push(`· style of: ${style}`);
+    setStyle();
   }
 }
 
@@ -74,65 +98,45 @@ function setGenres() {
   );
 }
 
-function setOthers() {
-  // add first constraint and all extra constraints to one array usedConstraints, then join by semicolons and update
-  const { philosophies, modes, timeSigs, vibes, constraints } = params;
-
-  let others = [philosophies, modes, timeSigs, vibes, constraints];
-
-  let othersTypes = [
-    "· philosophy: ",
-    "· mode: ",
-    "· time sig: ",
-    "· vibe: ",
-    "",
-  ];
-
-  let checkboxesOthers = [...checkboxes].slice(1, 6);
-
-  if (checkboxes[0].checked) {
-    setTempo();
-  }
-
-  for (let i = 0; i < checkboxesOthers.length; i++) {
-    if (checkboxesOthers[i].checked) {
-      state.push(othersTypes[i] + pick(others[i]));
-    }
-  }
-
-  if (checkboxes[5].checked) {
-    let usedConstraints = [];
-    let firstConstraint = state[state.length - 1];
-    usedConstraints.push(firstConstraint);
-
-    for (let i = 0; i < numConstraints - 1; i++) {
-      let extraConstraint = pick(constraints);
-      let same = usedConstraints.includes(extraConstraint);
-      while (same) {
-        extraConstraint = pick(constraints);
-        same = usedConstraints.includes(extraConstraint);
-      } // re-rolls until extra constraint is new
-      usedConstraints.push(extraConstraint);
-    }
-
-    usedConstraints = usedConstraints.map((x) => constraintFix(x));
-
-    state[state.length - 1] = "· constraints: " + usedConstraints.join("; ");
-  }
-
-  if (checkboxes[6].checked) {
-    setTimeLimit();
-  }
+function setStyle() {
+  let style = pick(params.styleOfs);
+  state.push(`· style of: ${style}`);
 }
 
 function setTempo() {
-  // 60 to maxTempo
   let tempo = Math.floor(Math.random() * (maxTempo - 59)) + 60;
   state.push("· tempo: " + tempo + " BPM");
 }
 
+function setOthers(params, prefixes, checkboxes) {
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      state.push(prefixes[i] + pick(params[i]));
+    }
+  }
+}
+
+function setConstraints() {
+  const { constraints } = params;
+  let usedConstraints = [];
+  let firstConstraint = state[state.length - 1];
+  usedConstraints.push(firstConstraint);
+
+  for (let i = 0; i < numConstraints - 1; i++) {
+    let extraConstraint = pick(constraints);
+    let same = usedConstraints.includes(extraConstraint);
+    while (same) {
+      extraConstraint = pick(constraints);
+      same = usedConstraints.includes(extraConstraint);
+    } // re-rolls until extra constraint is new
+    usedConstraints.push(extraConstraint);
+  }
+
+  usedConstraints = usedConstraints.map((x) => constraintFix(x));
+  state[state.length - 1] = "· constraints: " + usedConstraints.join("; ");
+}
+
 function setTimeLimit() {
-  // random 30-180 15 min increments
   let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
   state.push("· time limit: " + timeLimit + " minutes");
 }
@@ -185,5 +189,3 @@ const init = () => {
 };
 
 init();
-
-// TODO(joe): make setOthers() less janky
