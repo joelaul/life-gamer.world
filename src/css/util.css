@@ -1,0 +1,16 @@
+.dark-mode,
+.dark-mode a,
+.dark-mode a:visited,
+.dark-mode hr  {
+  color: black;
+  border-color: black;
+}
+
+.dark-mode {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+body.dark-mode table {
+  border-collapse: collapse;
+}

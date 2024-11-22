@@ -1,0 +1,205 @@
+@import url("util.css");
+
+/* ELEMENTS - META */
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 775px;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+
+  margin: 0 auto;
+  padding: 0px 0px 1em;
+
+  color: whitesmoke;
+}
+
+header {
+  background: #f6f6f6A0;
+}
+
+main {
+  padding-bottom: 1rem;
+}
+
+/* ELEMENTS - CORE */
+
+h1,
+h2,
+p,
+a,
+header
+form {
+  text-align: center;
+}
+
+a {
+  color: aquamarine;
+}
+a:hover {
+  color: dodgerblue;
+}
+a:visited {
+  color: aquamarine;
+}
+
+audio {
+  transform: scale(85%);
+
+  border: none;
+  border-radius: 50px;
+  box-shadow: 7px 9px 0px black;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+}
+button:active {
+  background-color: #d1d1d1;
+}
+button:hover {
+  border: 3px solid green;
+}
+
+figcaption {
+  padding-top: 10px;
+
+  font-size: 0.9em;
+  text-align: center;
+}
+
+hr {
+  margin: 0;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 81%;
+  color: black;
+}
+
+nav {
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+pre {
+  display: inline;
+
+}
+
+video {
+  height: 430px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* CLASSES */
+
+.audiobaby {
+  display: flex;
+  justify-content: center;
+}
+
+.webmaster-intro {
+  margin: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+.webmaster-intro p {
+  max-width: 450px;
+}
+.webmaster-intro img {
+  padding-left: 20px;
+}
+
+.brave-traveler {
+  height: 470px;
+
+  display: flex;
+
+  /* background: rgb(80, 0, 0); */
+  /* background: linear-gradient(#e66465, #9198e5); */
+  background: linear-gradient(#F5DDC8D0, #c9b5d3D0);
+  /* color: whitesmoke; */
+}
+.brave-traveler__vera {
+  flex: 1;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+}
+.brave-traveler__dickinabox {
+  flex: 1;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}   
+
+.chicago-slang {
+  display: flex;
+  flex-direction: column;
+  
+  /* background: linear-gradient(#e66465, #9198e5); */
+  background: #f6f6f6A0;
+  color: black;
+}
+.chicago-slang__header {
+  position: relative;
+}
+.chicago-slang__content {
+  position: relative;
+  bottom: 30px;
+}
+
+.favorite-rapers {
+  display: flex;
+  flex-direction: column;
+
+  /* background-color: greenyellow; */
+  background: linear-gradient(#F5DDC8D0, #c9b5d3D0);
+  color: black;
+}
+.favorite-rapers__main {
+  display: flex;
+  padding: 0px 20px 0px;
+}
+.favorite-rapers__header {
+  flex: 1;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+.favorite-rapers__list {
+  flex: 2;
+}
+.favorite-rapers__poll {
+  height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #00ced180;
+}
+
+.bam-margera {
+  background: #f6f6f6A0;
+}
+.bam-margera h2 {
+  color: whitesmoke;
+}

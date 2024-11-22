@@ -1,155 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TTYD Tattle Log - life-gamer.world</title>
-    <link rel="icon" href="./favicon.ico" />
 
-    <link rel="stylesheet" href="./src/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="./src/styles/tattlelog.css" type="text/css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TTYD Tattle Log - life-gamer.world</title>
+  <link rel="icon" href="./assets/favicon.ico" />
 
-  <body>
-    <header>
-      <a href="./index.html"
-        ><img src="./assets/img/banner.png" width="850" height="auto"
-      /></a>
-      <hr />
-    </header>
+  <link rel="stylesheet" href="./src/css/main.css" type="text/css" />
+  <link rel="stylesheet" href="./src/css/tattlelog.css" type="text/css" />
+</head>
 
-    <main>
-      <table>
-        <caption>
-          <img
-            src="./assets/img/tattlelog/tattlelog.png"
-            width="850"
-            height="auto"
-          />
-        </caption>
-        <thead>
-          <tr>
-            <th>Page #</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>HP</th>
-            <th>ATK</th>
-            <th>DEF</th>
-            <th>Location</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>001</td>
-            <td>Goomba</td>
-            <td>
-              The underling of underlings. No other distinguishing
-              characteristics.
-            </td>
-            <td>2</td>
-            <td>1</td>
-            <td>0</td>
-            <td>
-              Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle,
-              Glitzville
-            </td>
-            <td>
-              <img id="001" src="./assets/img/tattlelog/1.png" />
-            </td>
-          </tr>
-          <tr>
-            <td>002</td>
-            <td>Paragoomba</td>
-            <td>
-              A Goomba with wings. Can't reach it with a hammer while it's in
-              the air, but once it's damaged, its wings get clipped. It's kind
-              of sad really.
-            </td>
-            <td>2</td>
-            <td>1</td>
-            <td>0</td>
-            <td>
-              Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle
-            </td>
-            <td>
-              <img id="002" src="./assets/img/tattlelog/2.png" />
-            </td>
-          </tr>
-          <tr>
-            <td>003</td>
-            <td>Spiked Goomba</td>
-            <td>
-              A Goomba that wears a spiked helmet. Slighty higher attack power
-              than a typical Goomba.
-            </td>
-            <td>2</td>
-            <td>2</td>
-            <td>0</td>
-            <td>
-              Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle
-            </td>
-            <td>
-              <img id="003" src="./assets/img/tattlelog/3.png" />
-            </td>
-          </tr>
+<!-- <body> -->
 
-          <tr>
-            <td>004</td>
-            <td>Hyper Goomba</td>
-            <td>
-              When this hyperactive Goomba charges up, its Attack rises to
-              eight, so watch yourself!
-            </td>
-            <td>8</td>
-            <td>2</td>
-            <td>0</td>
-            <td>Twilight Trail</td>
-            <td>
-              <img id="004" src="./assets/img/tattlelog/4.png" />
-            </td>
-          </tr>
-          <tr>
-            <td>005</td>
-            <td>Hyper Paragoomba</td>
-            <td>
-              When this winged Hyper Goomba charges up, its attack power rises
-              to 8.
-            </td>
-            <td>8</td>
-            <td>2</td>
-            <td>0</td>
-            <td>Twilight Trail</td>
-            <td>
-              <img id="005" src="./assets/img/tattlelog/5.png" />
-            </td>
-          </tr>
-          <tr>
-            <td>006</td>
-            <td>Hyper Spiky Goomba</td>
-            <td>
-              When this hyperactive spike-headed Hyper Goomba charges up, its
-              Attack rises to nine, so heads up!
-            </td>
-            <td>8</td>
-            <td>3</td>
-            <td>0</td>
-            <td>Twilight Trail</td>
-            <td>
-              <img id="006" src="./assets/img/tattlelog/6.png" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </main>
+  <header>
+
+    <a href="./">
+      <img src="./assets/img/banner.png" width="775" height="auto" />
+    </a>
+
+    <audio autoplay loop src="./assets/audio/rogueport-sewers.mp3">
+
+    <!-- <hr /> -->
+
+  </header>
+
+  <main>
+
+    <table>
+
+        <img
+          src="./assets/img/tattlelog/tattlelog.png"
+          width="775"
+          height="auto"
+        />
+      
+      <thead>
+        <tr>
+          <th>Page #</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>HP</th>
+          <th>ATK</th>
+          <th>DEF</th>
+          <th>Location</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Goomba</td>
+          <td>
+            The underling of underlings. No other distinguishing
+            characteristics.
+          </td>
+          <td>2</td>
+          <td>1</td>
+          <td>0</td>
+          <td>
+            Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle,
+            Glitzville
+          </td>
+          <td>
+            <img id="001" src="./assets/img/tattlelog/1.png" />
+          </td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Paragoomba</td>
+          <td>
+            A Goomba with wings. Can't reach it with a hammer while it's in
+            the air, but once it's damaged, its wings get clipped. It's kind
+            of sad really.
+          </td>
+          <td>2</td>
+          <td>1</td>
+          <td>0</td>
+          <td>
+            Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle
+          </td>
+          <td>
+            <img id="002" src="./assets/img/tattlelog/2.png" />
+          </td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Spiked Goomba</td>
+          <td>
+            A Goomba that wears a spiked helmet. Slighty higher attack power
+            than a typical Goomba.
+          </td>
+          <td>2</td>
+          <td>2</td>
+          <td>0</td>
+          <td>
+            Rogueport Sewers, Petal Meadows, Shwonk Fortress, Hooktail Castle
+          </td>
+          <td>
+            <img id="003" src="./assets/img/tattlelog/3.png" />
+          </td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>Hyper Goomba</td>
+          <td>
+            When this hyperactive Goomba charges up, its Attack rises to
+            eight, so watch yourself!
+          </td>
+          <td>8</td>
+          <td>2</td>
+          <td>0</td>
+          <td>Twilight Trail</td>
+          <td>
+            <img id="004" src="./assets/img/tattlelog/4.png" />
+          </td>
+        </tr>
+        <tr>
+          <td>005</td>
+          <td>Hyper Paragoomba</td>
+          <td>
+            When this winged Hyper Goomba charges up, its attack power rises
+            to 8.
+          </td>
+          <td>8</td>
+          <td>2</td>
+          <td>0</td>
+          <td>Twilight Trail</td>
+          <td>
+            <img id="005" src="./assets/img/tattlelog/5.png" />
+          </td>
+        </tr>
+        <tr>
+          <td>006</td>
+          <td>Hyper Spiky Goomba</td>
+          <td>
+            When this hyperactive spike-headed Hyper Goomba charges up, its
+            Attack rises to nine, so heads up!
+          </td>
+          <td>8</td>
+          <td>3</td>
+          <td>0</td>
+          <td>Twilight Trail</td>
+          <td>
+            <img id="006" src="./assets/img/tattlelog/6.png" />
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
     <hr />
+    
+  </main>
+  
+  <footer>
+    <div class="footer">
+      &lt;&lt;&lt; &copy; 2002 Gobal Communications, LLC &gt;&gt;&gt;
+      <br /><a href="./index.html">Back to home</a>
+    </div>
+  </footer>
+  
+  <script>
+    if (sessionStorage['background']) {
+      let background = sessionStorage.getItem('background');
+      document.body.style.backgroundImage = background;
 
-    <footer>
-      <div class="footer">
-        &lt;&lt;&lt; &copy; 2002 Gobal Communications, LLC &gt;&gt;&gt;
-        <br /><a href="./index.html">Back to home</a>
-      </div>
-    </footer>
-  </body>
+      let darkMode = sessionStorage.getItem('dark-mode');
+      if (darkMode == 'true') {
+          document.body.classList.add('dark-mode');
+      } else {
+          document.body.classList.remove('dark-mode');
+      }
+    }
+    else {
+        document.body.style.backgroundImage = `url("./assets/img/compchallenge/christmas-black.png")`;
+    }
+  </script>
+
+</body>
+
 </html>

@@ -207,7 +207,14 @@ export const params = {
   ],
 };
 
-export const images = [
+// IMPORTING STATIC FILE PATHS IS DANGEROUS BECAUSE FILE PATHS OFTEN CHANGE IN PRODUCTION OR OVER TIME. 
+
+// IMPORTING CONSTANTS IS STATIC
+
+// IMPORTING FUNCTIONS IS DYNAMIC
+
+export const bgSrc = [
+  'url("./assets/img/compchallenge/moroccan-flower-dark.png")',
   'url("./assets/img/compchallenge/bananas.png")',
   'url("./assets/img/compchallenge/beige-tiles.png")',
   'url("./assets/img/compchallenge/christmas-black.png")',
@@ -216,7 +223,6 @@ export const images = [
   'url("./assets/img/compchallenge/leaves.png")',
   'url("./assets/img/compchallenge/paisley.png")',
   'url("./assets/img/compchallenge/wheat.png")',
-  'url("./assets/img/compchallenge/moroccan-flower-dark.png")',
 ];
 
 export const sounds = [

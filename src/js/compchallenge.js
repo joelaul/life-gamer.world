@@ -1,8 +1,7 @@
 // IMPORTS
 
-import { params, images, sounds } from "./constants.js";
-import { pick, format, randomize } from "./utils.js";
-import { constraintFix } from "./constraintFix.js";
+import { params, bgSrc, sounds } from "./constants.js";
+import { constraintFix, format, pick, randomStrip } from "./util/index.js";
 
 // DOM
 
@@ -11,12 +10,12 @@ const p = document.querySelector("p");
 const h1 = document.querySelector("h1");
 const checkboxes = document.querySelectorAll("input[type='checkbox']");
 const labels = document.querySelectorAll("label");
-const generateBtn = document.querySelector("#btn");
+const generateBtn = document.querySelector(".button-generate");
+const changeBGBtn = document.querySelector(".button-change_bg");
 const maxTempoRange = document.querySelectorAll("input")[8];
 const maxTempoLabel = document.querySelectorAll("label")[8];
 const constraintsRange = document.querySelectorAll("input")[9];
 const constraintsLabel = document.querySelectorAll("label")[9];
-const changeBGBtn = document.querySelector("#btn2");
 
 // STATE
 
@@ -27,7 +26,7 @@ let state = [];
 
 // FUNCTIONS - EFFECT
 
-function clickSound() {
+const clickSound = () => {
   let random = sounds[Math.floor(Math.random() * sounds.length)];
   let sound = new Audio(random);
   sound.pause();
@@ -36,27 +35,15 @@ function clickSound() {
 
 // FUNCTIONS - STATE
 
-function setState() {
-  const { philosophies, modes, timeSigs, vibes, constraints } = params;
-
-  let others = [philosophies, modes, timeSigs, vibes, constraints];
-  let othersPrefixes = [
-    "· philosophy: ",
-    "· mode: ",
-    "· time sig: ",
-    "· vibe: ",
-    "",
-  ];
-  let othersCheckboxes = [...checkboxes].slice(1, 6);
-
+const setState = () => {
   setGenresOrStyle();
 
   if (checkboxes[0].checked) {
     setTempo();
   }
 
-  // philosophy, mode, timeSig, vibe
-  setOthers(others, othersPrefixes, othersCheckboxes);
+  // checkboxes 1-4 (philosophy, mode, timeSig, vibe)
+  setOthers();
 
   if (checkboxes[5].checked) {
     setConstraints();
@@ -65,15 +52,14 @@ function setState() {
     setTimeLimit();
   }
   if (checkboxes[7].checked) {
-    randomize(state);
+    randomStrip(state);
   }
 
-  // console.log("state:\n" + state);
   let output = format(state);
   p.innerText = output;
 }
 
-function setGenresOrStyle() {
+const setGenresOrStyle = () => {
   let random = Math.random();
   if (random < 0.5) {
     setGenres();
@@ -82,7 +68,7 @@ function setGenresOrStyle() {
   }
 }
 
-function setGenres() {
+const setGenres = () => {
   let primaryGenre = pick(params.genres);
   let primaryPick = pick(primaryGenre);
   let secondaryGenre = pick(params.genres);
@@ -98,25 +84,37 @@ function setGenres() {
   );
 }
 
-function setStyle() {
+const setStyle = () => {
   let style = pick(params.styleOfs);
   state.push(`· style of: ${style}`);
 }
 
-function setTempo() {
+const setTempo = () => {
   let tempo = Math.floor(Math.random() * (maxTempo - 59)) + 60;
   state.push("· tempo: " + tempo + " BPM");
 }
 
-function setOthers(params, prefixes, checkboxes) {
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      state.push(prefixes[i] + pick(params[i]));
+const setOthers = () => {
+  const { philosophies, modes, timeSigs, vibes, constraints } = params;
+
+  let others = [philosophies, modes, timeSigs, vibes, constraints];
+  let othersPrefixes = [
+    "· philosophy: ",
+    "· mode: ",
+    "· time sig: ",
+    "· vibe: ",
+    "",
+  ];
+  let othersCheckboxes = [...checkboxes].slice(1, 6);
+
+  for (let i = 0; i < othersCheckboxes.length; i++) {
+    if (othersCheckboxes[i].checked) {
+      state.push(othersPrefixes[i] + pick(others[i]));
     }
   }
 }
 
-function setConstraints() {
+const setConstraints = () => {
   const { constraints } = params;
   let usedConstraints = [];
   let firstConstraint = state[state.length - 1];
@@ -136,41 +134,39 @@ function setConstraints() {
   state[state.length - 1] = "· constraints: " + usedConstraints.join("; ");
 }
 
-function setTimeLimit() {
+const setTimeLimit = () => {
   let timeLimit = 30 + 15 * Math.floor(Math.random() * 11);
   state.push("· time limit: " + timeLimit + " minutes");
 }
 
 // HANDLERS
 
-function handleGenerate() {
+const handleGenerate = () => {
+  if (p.classList.contains('hide')) {
+    p.classList.remove('hide');
+  }
   clickSound();
   setState();
   state = [];
 }
 
-function handleChangeBG() {
-  body.style.backgroundImage = images[bgIdx];
+const handleChangeBG = () => {
 
-  if (![0, 1, 3, 4, 5, 6].includes(bgIdx)) {
-    p.style.color = "whitesmoke";
-    h1.style.color = "whitesmoke";
-    for (let label of labels) {
-      label.style.color = "whitesmoke";
-    }
-    body.style.borderLeft = "1px solid whitesmoke";
-    body.style.borderRight = "1px solid whitesmoke";
+  // dark-text for indices 1, 2, 4, 5, 6, 7
+
+  bgIdx = (bgIdx + 1) % bgSrc.length;
+  body.style.backgroundImage = bgSrc[bgIdx];
+
+  if ([1, 2, 4, 5, 6, 7].includes(bgIdx)) {
+    document.body.classList.add('dark-mode');
+    sessionStorage.setItem('dark-mode', 'true');
   } else {
-    p.style.color = "black";
-    h1.style.color = "black";
-    for (let label of labels) {
-      label.style.color = "black";
-    }
-    body.style.borderLeft = "2px solid black";
-    body.style.borderRight = "2px solid black";
+    document.body.classList.remove('dark-mode');
+    sessionStorage.setItem('dark-mode', 'false');
   }
 
-  bgIdx = (bgIdx + 1) % images.length;
+  sessionStorage.setItem('background', body.style.backgroundImage)
+  sessionStorage.setItem('bgIdx', bgIdx)
 }
 
 // INIT
@@ -186,6 +182,10 @@ const init = () => {
   });
   generateBtn.addEventListener("click", handleGenerate);
   changeBGBtn.addEventListener("click", handleChangeBG);
+
+  if (sessionStorage['bgIdx']) {
+    bgIdx = sessionStorage.getItem('bgIdx');
+  }
 };
 
 init();

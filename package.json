@@ -1,0 +1,15 @@
+{
+  "name": "life-gamer.world",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": "https://github.com/joelaul/life-gamer.world.git",
+  "author": "Joe <laulettaj@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "yarn parcel index.html"
+  },
+  "dependencies": {
+    "parcel": "^2.10.3"
+  }
+}
